@@ -3,6 +3,11 @@ import './App.css';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 
+async function getDog(){
+  let response = await fetch('https://dog.ceo/api/breeds/image/random');
+  let data = await response.json();
+  return data;
+}
 
 function App() {
   const [image, setImage] = useState('');
