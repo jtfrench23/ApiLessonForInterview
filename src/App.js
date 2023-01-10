@@ -6,12 +6,14 @@ import axios from 'axios';
 async function getDog(){
   let response = await fetch('https://dog.ceo/api/breeds/image/random');
   let data = await response.json();
+  console.log(data);
   return data;
 }
 
 function App() {
   const [image, setImage] = useState('');
   useEffect(()=>{
+    getDog();
     axios.get('https://dog.ceo/api/breeds/image/random')
     .then(response => {
       setImage(response.data.message);
